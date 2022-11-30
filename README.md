@@ -31,8 +31,8 @@ jobs:
 ### Inputs
 
 | Input                         | Description                                                   | Default   |
-|-------------------------------|---------------------------------------------------------------| eu-west-1 |
-| `aws-region` _(required)_     | AWS Region                                                    |           |
+|-------------------------------|---------------------------------------------------------------|-----------|
+| `aws-region` _(required)_     | AWS Region                                                    |eu-west-1  |
 | `domain` _(required)_         | CodeArtifact domain to which the package repository belongs   |           |
 | `domain-owner` _(required)_   | Owner (AWS Account) of the CodeArtifact domain                |           |
 | `repository` _(optional)_     | CodeArtifact repository for which to optionally fetch the URL |           |
