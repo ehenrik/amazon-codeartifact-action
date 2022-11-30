@@ -1,4 +1,4 @@
-# go-license check Action
+# amazon-codeartifact-action
 Run go's license checker.
 
 - [Licenses tool for Go](https://github.com/google/go-licenses)
@@ -9,26 +9,31 @@ See [action.yml](action.yml)
 ## Basic
 
 ```yaml
-name: Go licenses check
+name: amazon codeartifact action
 on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: check go licenses
-      uses: opzkit/go-license-check-action@v1.0.0
-      # optional
+    - name: amazon codeartifact action
+      uses: opzkit/amazon-codeartifact-action@v1.0.0
       with:
-        go-version: '1.19'
-        govuln-version: 'latest'
-        packages: './...'
+      # required
+        aws-region: 'eu-west-1'
+        domain: 'domain-name'
+        domain-owner: 'XXXXXXXXXXXX'
+      # optional
+        repository: 'repository-name'
+        tool: 'npm'
 ```
 
 ### Inputs
 
-| Input                         | Description                                    |
-|-------------------------------|------------------------------------------------|
-| `package` _(optional)_        | The package you want to scan, default: "./..." |
-| `go-version` _(optional)_     | The go version to use, default: "1.19"         |
-| `govuln-version` _(optional)_ | The   govuln version to use, default: "latest" |
+| Input                         | Description                                                   | Default   |
+|-------------------------------|---------------------------------------------------------------| eu-west-1 |
+| `aws-region` _(required)_     | AWS Region                                                    |           |
+| `domain` _(required)_         | CodeArtifact domain to which the package repository belongs   |           |
+| `domain-owner` _(required)_   | Owner (AWS Account) of the CodeArtifact domain                |           |
+| `repository` _(optional)_     | CodeArtifact repository for which to optionally fetch the URL |           |
+| `tool` _(optional)_           | Format of the repository URL                                  | npm       |
