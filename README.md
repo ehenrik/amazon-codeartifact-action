@@ -1,7 +1,5 @@
 # amazon-codeartifact-action
-Run go's license checker.
-
-- [Licenses tool for Go](https://github.com/google/go-licenses)
+Action to authenticate against amazon codeartifact
 
 # Usage
 See [action.yml](action.yml)
