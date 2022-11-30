@@ -8,7 +8,7 @@ author: "opzkit"
 inputs:
   aws-region:
     description: 'AWS Region, e.g. us-east-2'
-    required: true
+    required: false
     default: eu-west-1
   domain:
     description: CodeArtifact domain to which the package repository belongs
